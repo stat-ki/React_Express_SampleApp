@@ -79,12 +79,12 @@ const checkJwt = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://dev-2-90xc42.auth0.com/.well-known/jwks.json`
+    jwksUri: process.env.CLIENT_URL
   }),
 
   // Validate the audience and the issuer.
-  audience: '1ygYWxEIs2ejc8u1aiRoZ9avo2ypElE9',
-  issuer: `https://dev-2-90xc42.auth0.com`,
+  audience: process.env.CLIENT_ID,
+  issuer: process.env.DOMAIN,
   algorithms: ['RS256']
 });
 
